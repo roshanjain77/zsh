@@ -19,5 +19,5 @@ ln -s .zprezto/runcoms/zshenv .zshenv
 ln -s .zprezto/runcoms/zshrc .zshrc
 ```
 
-You may need to install [these](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) fonts. After installing the fonts, change font prefrences of your terminal to ~MesloLGS NF~
+You may need to install [these](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) fonts. After installing the fonts, change font prefrences of your terminal to `MesloLGS NF`
 
