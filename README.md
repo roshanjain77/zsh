@@ -1,6 +1,10 @@
 # zsh
 
-Rename the git file as **dotfiles**.
+These configurations are only for linux users, I don't know if they work on windows or Mac.
+
+Rename the git folder as **dotfiles**.
+
+**Git folder should be in your home directory**.
 
 Execute the following commands
 ```
