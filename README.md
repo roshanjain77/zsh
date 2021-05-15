@@ -19,7 +19,7 @@ ln -s .zprezto/runcoms/zshenv .zshenv
 ln -s .zprezto/runcoms/zshrc .zshrc
 ln -s dotfiles/.aliases .aliases
 ```
-**Note: Commands must be executed in home directory**.
+**Note: Commands must be executed from home directory**.
 
 
 
