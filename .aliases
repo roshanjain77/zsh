@@ -1,0 +1,11 @@
+alias ll='ls -alFh'
+alias la='ls -A'
+alias l='ls -CF'
+alias c='clear'
+alias d='cd /home/$USER/Desktop/'
+alias h='cd /home/$USER'
+alias dac='conda deactivate'
+alias gs='git status'
+alias mv="mv -i"
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+alias time='Time'
