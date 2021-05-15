@@ -1,5 +1,7 @@
 # zsh
 
+Rename the git file as **dotfiles**.
+
 Execute the following commands
 ```
 ln -s dotfiles/zsh/.zprezto/ .zprezto
