@@ -1,13 +1,12 @@
 # zsh
 
-These configurations are only for linux users, I don't know if they work on windows or Mac.
-
-Rename the git folder as **dotfiles**.
+These configurations are only for linux and Mac users, I don't know if they work on windows.
 
 **Git folder should be in your home directory**.
 
-Execute the following commands
+Execute the following commands (home directory)
 ```
+mv zsh dotfiles
 ln -s dotfiles/zsh/.zprezto/ .zprezto
 ln -s dotfiles/zsh/.zsh/ .zsh
 ln -s dotfiles/zsh/.p10k.zsh .p10k.zsh
@@ -20,7 +19,6 @@ ln -s .zprezto/runcoms/zshrc .zshrc
 ln -s dotfiles/.aliases .aliases
 ```
 **Note: Commands must be executed from home directory**.
-
 
 
 To make zsh default:
