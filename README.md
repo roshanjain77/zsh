@@ -1,6 +1,6 @@
 # zsh
 
-These configurations are only for linux and Mac users, I don't know if they work on windows.
+These configurations are only for Linux and Mac users. I don't know if they work on windows.
 
 **Git folder should be in your home directory**.
 
@@ -18,7 +18,9 @@ ln -s .zprezto/runcoms/zshenv .zshenv
 ln -s .zprezto/runcoms/zshrc .zshrc
 ln -s dotfiles/.aliases .aliases
 ```
-**Note: Commands must be executed from home directory**.
+**Note: You must execute commands from the home directory**.
+
+The above commands may give errors if you already have a .zshrc file or any other file. Delete the files on which error was found (use rm command).
 
 
 To make zsh default:
@@ -28,5 +30,5 @@ chsh -s $(which zsh)
 Restart your device.
 
 
-You may need to install [these](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) fonts. After installing the fonts, change font prefrences of your terminal to `MesloLGS NF`
+You may need to install [these](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) fonts. After installing the fonts, change the font preferences of your terminal to `MesloLGS NF`
 
