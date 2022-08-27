@@ -4,6 +4,11 @@ These configurations are only for Linux and Mac users. I don't know if they work
 
 **Git folder should be in your home directory**.
 
+Install zsh
+```
+sudo apt install zsh
+```
+
 Execute the following commands (home directory)
 ```
 mv zsh dotfiles
