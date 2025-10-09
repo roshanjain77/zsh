@@ -31,6 +31,17 @@ export LANG='en_US.UTF-8'
 # Paths
 #
 
+# Initialize Homebrew (macOS)
+if [[ "$OSTYPE" == darwin* ]]; then
+  if [[ -f /opt/homebrew/bin/brew ]]; then
+    # Apple Silicon
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  elif [[ -f /usr/local/bin/brew ]]; then
+    # Intel Mac
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
+fi
+
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
