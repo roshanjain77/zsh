@@ -124,4 +124,66 @@ export NVM_DIR="$HOME/.nvm"
 # export LD_LIBRARY_PATH=/usr/local/cuda-11.3/lib64:$LD_LIBRARY_PATH
 # export CUDADIR=/usr/local/cuda-11.3
 
+export CLAUDE_CODE_MAX_OUTPUT_TOKENS=128000
+
+
 setopt clobber
+
+# Added by Antigravity
+export PATH="/Users/ferrero/.antigravity/antigravity/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# --- iTerm2 pane title: dir | branch | #PR [> cmd] ---
+_iterm_title_info() {
+  local dir="${PWD:t}"
+  local title="$dir"
+
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
+    local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+    [[ -n "$branch" ]] && title="$title | $branch"
+
+    # Read cached PR number
+    local repo_root=$(git rev-parse --show-toplevel 2>/dev/null)
+    local safe_key="${repo_root//\//_}__${branch//\//_}"
+    local cache_file="/tmp/iterm_pr_${safe_key}"
+
+    if [[ -f "$cache_file" ]]; then
+      local pr=$(<"$cache_file")
+      [[ -n "$pr" ]] && title="$title | #${pr}"
+    fi
+
+    # Refresh cache in background, rate-limited to every 5 min
+    local now=${EPOCHSECONDS:-$(date +%s)}
+    local mtime=0
+    [[ -f "$cache_file" ]] && mtime=$(stat -f %m "$cache_file" 2>/dev/null || echo 0)
+    if (( now - mtime > 300 )); then
+      ( gh pr view --json number -q .number > "$cache_file" 2>/dev/null & ) 2>/dev/null
+    fi
+  fi
+
+  echo "$title"
+}
+
+# record start time + set title with running command
+preexec() {
+  CMD_START_TIME=$SECONDS
+  local cmd="${1%% *}"
+  print -Pn "\e]1;$(_iterm_title_info) › ${cmd}\a"
+}
+
+# run after command finishes + set idle title
+precmd() {
+  if [[ -n "$CMD_START_TIME" ]]; then
+    duration=$(( SECONDS - CMD_START_TIME ))
+
+    if (( duration > 10 )); then
+      afplay /System/Library/Sounds/Glass.aiff
+    fi
+
+    unset CMD_START_TIME
+  fi
+
+  print -Pn "\e]1;$(_iterm_title_info)\a"
+}
+
+

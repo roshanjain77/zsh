@@ -9,3 +9,6 @@ alias gs='git status'
 alias mv="mv -i"
 alias alert='osascript -e "display notification \"$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')" with title \"Command Completed\" sound name \"Glass\""'
 alias time='Time'
+alias tb='cd /Users/$USER/Desktop/TeemBackend'
+alias tf='cd /Users/$USER/Desktop/TeemCRM'
+alias gwt='git worktree add -b'
